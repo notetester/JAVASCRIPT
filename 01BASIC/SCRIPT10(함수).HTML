@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 선언적 함수 VS 익명 함수 */
+        // func1();
+        // func2();
+        // a();//에러
+        function func1(){
+            console.log("func1실행");
+        }
+        function func2(){
+            console.log("func2실행");
+        }
+        var a=func2;
+        console.log(a);
+        a();
+        func1();
+        func2();
+        //익명함수 - - 변수에 함수를 저장하여, 마치 변수처럼 쓰도록 만들어줍니다.(단, 익명 함수는 선언 이후에 호출되어야 합니다.)
+        var b=function(){
+            console.log("func3실행");
+        }
+        b();
+    </script>
+</body>
+</html>

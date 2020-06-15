@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="func1()">클릭1</button>
+    <button type="button" onclick="func2(10)">클릭2</button>
+    <button type="button" onclick="func3('홍길동',100)">클릭3</button>
+    <button type="button" onclick="func4()">클릭4</button>
+    <button type="button" onclick="func5(10)">클릭5</button>
+    <button type="button" onclick="func6('홍길동',100)">클릭6</button>
+    <script>
+        function func1(){
+            alert("func1 실행");
+        }
+        function func2(a){
+            if(a%2==0){
+                alert("짝수");
+            }else{
+                alert("홀수");
+            }
+        }
+        function func3(a,b){
+            alert(a+"님의 점수 : "+b);
+        }
+        var func4=function(){alert("func4 실행")}
+        var func5=function(a){
+            if(a%2==0){
+                alert("짝수");
+            }else{
+                alert("홀수");
+            }
+        }
+        var func6=function(a,b){
+            alert(a+"님의 점수 : "+b);
+        }
+        function point(a,b,c,d){
+            return a+"님의 평균은 : "+((b+c+d)/3);
+        }
+        console.log(point("홍길동",92,98,99));
+        var point2=function(a,b,c,d){
+            return a+"님의 평균은 : "+((b+c+d)/3);
+        }
+        console.log(point2("홍길동",92,98,99));
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //생성된 포문 for ~ in
+        //주의 - 배열이나 객체의 index나 key값을 변수에 저장합니다.
+        var arr=[1,2,3,4,5,'가','나','다'];
+        for(var i in arr){
+            console.log(i);//index
+            console.log(arr[i]);
+        }
+        var obj={key1:"가",key2:"나",key3:"다",dd:"d"};
+        for(var i in obj){
+            console.log(i);
+            console.log(obj[i]);
+        }
+        console.log(arr);
+        console.log(obj);
+    </script>
+</body>
+</html>

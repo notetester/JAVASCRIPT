@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* number,string,boolean,underfined,null */
+        var num1="10";
+        var num2='10';
+        var num3=10;
+        num1=10;
+        num2="10";
+        num3='10';
+        console.log(num1);
+        console.log(num2);
+        console.log(num3);
+        console.log(num1+num2);//숫자+문자열과 연산시 문자열이 됩니다
+        console.log(num1+20);//숫자+숫자 연산시 결과는 숫자가 됩니다.
+        console.log(num1+num2+num3);
+        //true, false는 1또는 0으로 표기가 가능합니다.
+        var bool1=true;
+        var bool2=false;
+        console.log(bool1);
+        console.log(bool2);
+        console.log("------------------------------------");
+        //undefined 타입은 변수는 선언했지만, 초기화를 하지 않은 경우에 자동으로 할당되는 타입
+        var un;
+        console.log(un);
+        //null은 값은 저장했으나 값이 존재하지 않을 때 나타압니다.
+        var tag=document.getElementById("dd");
+        console.log(tag);
+        //typeof 변수명
+        console.log(typeof num1);
+        console.log(typeof num2);
+        console.log(typeof num3);
+        console.log(typeof bool1);
+        console.log(typeof bool2);
+        console.log(typeof un);
+        console.log(typeof tag);
+    </script>
+</body>
+</html>
