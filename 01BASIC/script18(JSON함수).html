@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var data = [
+            {"acmtlrf":"455.5","hourrf":"0","no":"1","obsrdt":"2020-06-16 01:00"},
+            {"acmtlrf":"455.5","hourrf":"0","no":"2","obsrdt":"2020-06-16 02:00"},
+            {"acmtlrf":"455.5","hourrf":"0","no":"3","obsrdt":"2020-06-16 03:00"},
+            {"acmtlrf":"455.5","hourrf":"0","no":"4","obsrdt":"2020-06-16 04:00"},
+            {"acmtlrf":"455.5","hourrf":"0","no":"5","obsrdt":"2020-06-16 05:00"},
+            {"acmtlrf":"455.5","hourrf":"0","no":"6","obsrdt":"2020-06-16 06:00"},
+            {"acmtlrf":"455.5","hourrf":"0","no":"7","obsrdt":"2020-06-16 07:00"},
+            {"acmtlrf":"455.5","hourrf":"0","no":"8","obsrdt":"2020-06-16 08:00"},
+            {"acmtlrf":"455.5","hourrf":"0","no":"9","obsrdt":"2020-06-16 09:00"},
+            {"acmtlrf":"455.5","hourrf":"0","no":"10","obsrdt":"2020-06-16 10:00"},
+            {"acmtlrf":"455.5","hourrf":"0","no":"11","obsrdt":"2020-06-16 11:00"}
+        ]
+        //객체 -> 제이슨형식 문자열 데이터
+        var result = JSON.stringify(data);
+        console.log(result);
+
+        //제이슨형식 문자열 데이터 -> 객체
+        var result2 = JSON.parse(result);
+        console.log(result2);
+
+        //단, 문자열을 제이슨형식으로 변경할 대 엄격한 규칙을 지키는데, key와 value가 ""처리어야 합니다.
+
+
+        //var result3 = JSON.parse( '{name: "홍길동"}' ) //에러
+        var result3 = JSON.parse( '{"name": "홍길동"}');
+
+
+    </script>
+
+</body>
+</html>

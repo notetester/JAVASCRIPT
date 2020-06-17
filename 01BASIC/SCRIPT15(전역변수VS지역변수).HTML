@@ -6,34 +6,42 @@
     <title>Document</title>
 </head>
 <body>
+    
     <script>
-        var num1=50;
-        if(num1===50){
-            var num1=100;
+        var num1 = 50;
+        if(num1 === 50) {
+            var num1 = 100;
+        }        
+        console.log("num1은?" + num1); //중괄호 안에서는 전역, 지역변수의 개념이 없다.
+
+        var num2 = 60;
+        function add() {
+            var num2 = 100;
+            var num2 = 200;
         }
-        console.log("num1은?"+num1);//중괄호 안에서는 전역, 지역 변수의 개념이 없다.
-        var num2=60;
-        function add(){
-            var num2=100;
-            var num3=200;
+        add(); //함수호출
+        console.log("num2는?" + num2); //함수 안에 선언된 변수는 지역변수의 개념을 갖는다.
+
+        console.log("---------------------------------------");
+        //let변수는 var의 문제점을 보완한 ES06의 새로운 변수 입니다.
+        //변수의 지역변수를 결정하는 범위가 자바와 비슷합니다. 
+
+        let num3 = 100;
+        if(num3 === 100) {
+            let num3 = 200;
         }
-        add();//함수호출
-        console.log("num2는?"+num2);//함수 안에 선언된 변수는 지역 변수의 개념을 갖는다.
-        console.log("------------------------------------------");
-        //let변수는 var의 문제점을 보완한 ES06의 새로운 변수입니다.
-        //변수의 지역 변수를 결정하는 범위가 자바와 비슷합니다.
-        let num3=100;
-        if(num3===100){
-            let num3=200;
-        }
-        console.log("num3은?"+num3);
-        let num4=100;
-        function add2(){
-            let num4=200;
-            // let num4=300;
+        console.log("num3은?" +  num3);
+
+        let num4 = 100;
+        function add2() {
+            let num4 = 200;
+            //let num4 = 300; //같은 중괄호에서 동일변수 선언을 금지함.
         }
         add2();
-        console.log("num4는?"+num4);
+        console.log("num4는?" + num4);
+
+
     </script>
+
 </body>
 </html>

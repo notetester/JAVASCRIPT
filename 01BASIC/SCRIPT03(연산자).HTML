@@ -6,27 +6,31 @@
     <title>Document</title>
 </head>
 <body>
+    
     <script>
-        var num1="10";
-        var num2=10;
-        console.log(num1==num2);//true(값만 비교)
-        console.log(num1!=num2);//false
-        console.log(num1===num2);//false(값과 데이터 타입까지도 동일한지 비교)
-        console.log(num1!==num2);//true
+        var num1 = "10";
+        var num2 = 10;
+        
+        console.log(num1 == num2); //true (값만비교)
+        console.log(num1 != num2); //false 
+        console.log(num1 === num2); //false (값과 데이터 타입까지도 동일한지 비교)
+        console.log(num1 !== num2); //true 
+
         var a;
-        var b=null;
-        console.log(a,b,a==b);//true
-        console.log(a,b,a!=b);//false
-        console.log(a,b,a===b);//false(undefined와 null은 둘다 값이 없는 형태이지만 타입이 다르기 때문에 false 반환)
-        console.log(a,b,a!==b);//true
-        var bool1=1;
-        var bool2=true;
-        console.log(bool1==bool2);
-        console.log(bool1===bool2);
-        var d=0;
-        var e="";
-        console.log(d==e);
-        console.log(d===e);
+        var b = null;
+        console.log(a, b, a == b); //t
+        console.log(a, b, a != b); //f
+        console.log(a, b, a === b); //f (undefined과 null은 둘다 값이 없는 형태이지만 타입이 다르기 때문에 false반환)
+        console.log(a, b, a !== b); //t
+
+        var bool1 = 1;
+        var bool2 = true; 
+        console.log(bool1 == bool2);
+        console.log(bool1 === bool2);
+
+        
     </script>
+
+
 </body>
 </html>

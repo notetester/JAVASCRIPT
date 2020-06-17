@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1. 다음 checkbox버튼을 클릭했을 때 "동의했습니다" 경고창을 띄우고 value값을 출력. -->
+    <input type="checkbox" value="1" onclick="check1(this)">조항1
+    <input type="checkbox" value="2" onclick="check1(this)">조항2
+    <input type="checkbox" value="3" onclick="check1(this)">조항3
+    <input type="checkbox" value="4" onclick="check1(this)">조항4
+    <input type="checkbox" value="5" onclick="check1(this)">조항5
+    <script>
+        function check1(a) {
+            
+            if(a.checked) { //checked속성이 있다면 true반환
+                alert(a.value + "조항에 동의했습니다");
+            } else {
+                return false; //종료
+            }
+
+        }
+
+    </script>
+    
+    <hr>
+
+    <!-- 2. 버튼을 클릭했을 때 input태그의 공백여부, 기억하기의 체크여부를 확인 -->
+    ID:<input type="text" id="id"><br>
+    기억하기:<input type="checkbox" id="remember">
+    <button type="button" id="check2">확인</button>
+        
+    <script>
+        var id = document.getElementById("id");
+        var remember = document.getElementById("remember");
+        
+        var check2 = document.getElementById("check2");
+        check2.onclick = function() {
+            
+            // console.log(id);
+            // console.log(remember);
+            
+            console.log("value값:" + id.value);
+            console.log("checked여부:"+ remember.checked);
+        }
+
+    </script>
+
+</body>
+</html>

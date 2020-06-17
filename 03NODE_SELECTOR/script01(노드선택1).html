@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+    getElementById()
+    getElementsByName()
+    getElementsByClassName()
+    getElementsByTagName()
+     -->
+
+    <button id="btn1">체크박스 확인</button> 
+    <input type="checkbox" name="inter" value="1">JAVA
+    <input type="checkbox" name="inter" value="2">JSP
+    <input type="checkbox" name="inter" value="3">JSX
+    <input type="checkbox" name="inter" value="4">SPRING
+    <input type="checkbox" name="inter" value="5">DB
+    <input type="checkbox" name="inter" value="6">JAVASCRIPT
+    
+    <hr/>
+    <!-- ClassName -->
+    <button id="btn2">라디오 확인</button>
+    <input type="radio" name="major" class="nice" value="1">프로그램
+    <input type="radio" name="major" class="nice" value="2">디자인
+    <input type="radio" name="major" class="nice" value="3">시스템
+    <input type="radio" name="major" class="nice" value="4">네트워크
+
+     <hr/>
+     <button id="btn3">셀렉트 확인</button>
+     <select id="select1">
+         <option>010</option>
+         <option>02</option>
+         <option>031</option>
+         <option>032</option>
+     </select>
+
+    <script>
+        //name
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick =function() {
+            
+            //name이 inter인 노드를 선택
+            var inter = document.getElementsByName("inter");
+            for(var i = 0; i < inter.length; i++) {
+                console.log(inter[i]); //태그(노드)
+                console.log(inter[i].value); //값
+                console.log(inter[i].checked); //체크여부
+            }
+
+        }
+        //className
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function() {
+
+            //class가 nice인 노드를 선택
+            var nice = document.getElementsByClassName("nice");
+            
+            for(var i = 0; i < nice.length; i++) {
+                console.log(nice[i]); //태그
+                console.log(nice[i].value); //값
+                console.log(nice[i].checked); //체크여부
+            }
+        }
+        //tagName
+        var btn3 = document.getElementById("btn3");
+        btn3.onclick = function() {
+            
+            //select1의 자식 태그만 선택
+            var select1 = document.getElementById("select1");
+            var option = select1.getElementsByTagName("option");
+
+            console.log(select1);
+            console.log(option);
+
+            for(var i = 0; i < option.length; i++) {
+                console.log(option[i].value);
+                console.log(option[i].selected); //선택되어 있는지 확인
+            }
+
+        }
+
+    </script> 
+
+    
+</body>
+</html>

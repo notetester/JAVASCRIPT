@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        window.onload = function() {
+
+            //단일선택 (선택방법이 css문법과 동일)
+            var tag1 = document.querySelector(".box1 ul li");
+            //이벤트
+            var check1 = document.getElementById("check1");
+            check1.onclick = function() {
+                
+                tag1.style.color ="red"; //태그의 style속성을 변경
+
+            }
+
+            //다중선택 (선택방법이 css문법과 동일)
+            var tag2 = document.querySelectorAll(".box2 ul li");
+            //이벤트
+            var check2 = document.getElementById("check2");
+            check2.onclick =function() {
+                
+                for(var i = 0; i < tag2.length; i++) {
+                    tag2[i].style.color = "red";
+                }
+
+            }
+        }
+    </script>
+
+    <button id="check1">querySelector</button>
+    <div class="box1">
+        <ul>
+            <li>hello</li>
+            <li>hi</li>
+            <li>bye</li>
+        </ul>
+    </div>
+
+    <button id="check2">querySelectorAll</button>
+    <div class="box2">
+        <ul>
+            <li>hello</li>
+            <li>hi</li>
+            <li>bye</li>
+        </ul>
+    </div>
+
+
+</body>
+</html>

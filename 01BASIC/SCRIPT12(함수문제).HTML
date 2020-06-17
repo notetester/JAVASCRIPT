@@ -6,45 +6,58 @@
     <title>Document</title>
 </head>
 <body>
+    
     <button type="button" onclick="func1()">클릭1</button>
     <button type="button" onclick="func2(10)">클릭2</button>
-    <button type="button" onclick="func3('홍길동',100)">클릭3</button>
-    <button type="button" onclick="func4()">클릭4</button>
-    <button type="button" onclick="func5(10)">클릭5</button>
-    <button type="button" onclick="func6('홍길동',100)">클릭6</button>
+    <button type="button" onclick="func3('홍길동', 10)">클릭3</button>
+
     <script>
-        function func1(){
-            alert("func1 실행");
+        /*
+        function func1() {
+            alert("func1실행");
         }
-        function func2(a){
-            if(a%2==0){
+        function func2(a) {
+            if(a % 2 == 0) {
                 alert("짝수");
-            }else{
+            } else {
                 alert("홀수");
             }
         }
-        function func3(a,b){
-            alert(a+"님의 점수 : "+b);
+        function func3(a, b) {
+            alert(a + "님의 점수:" + b);
         }
-        var func4=function(){alert("func4 실행")}
-        var func5=function(a){
-            if(a%2==0){
+        */
+        
+        var func1 = function() {
+            alert("func1실행");
+        }
+        var func2 = function(a) {
+            if(a % 2 == 0) {
                 alert("짝수");
-            }else{
+            } else {
                 alert("홀수");
             }
         }
-        var func6=function(a,b){
-            alert(a+"님의 점수 : "+b);
+        var func3 = function(a, b) {
+            alert(a + "님의 점수:" + b);
         }
-        function point(a,b,c,d){
-            return a+"님의 평균은 : "+((b+c+d)/3);
+
+        /*
+        function point(name, b, c, d) {
+            var avg = (b + c + d) / 3;
+            return name + "님의 평균:" + avg;
         }
-        console.log(point("홍길동",92,98,99));
-        var point2=function(a,b,c,d){
-            return a+"님의 평균은 : "+((b+c+d)/3);
+        */
+
+        var point = function(name, b, c ,d ) {
+            return name +"님의 평균:" + (b + c + d) /3;
         }
-        console.log(point2("홍길동",92,98,99));
+
+        //다음 함수와 동일한 결과를 보이는 선언적함수, 익명함수를 각각 선언
+        console.log( point('홍길동', 88, 90, 90) );
+        
+
     </script>
+
 </body>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 태그에 직접 자바스크립트를 실행하는 형태를 인라인이벤트 라고합니다 -->    
+    <!-- 
+    <button onclick="
+            var a = 1; 
+            var b = 2; 
+            function func() {
+                alert('경고창'); 
+            }
+            func();
+    ">인라인이벤트</button>
+     -->
+    
+    <button type="button" onclick="check1()">인라인이벤트</button>
+    <br>
+
+    <!-- 여러태그에서 동일한 함수에 이벤트를 걸어줄 수 있습니다 --> 
+    <button type="button" onclick="check2(this)" id="a">1</button>
+    <button type="button" onclick="check2(this)" id="b">2</button>
+    <button type="button" onclick="check2(this)" id="c">3</button>
+    <button type="button" onclick="check2(this)" id="d">4</button>
+    <button type="button" onclick="check2(this)" id="e">5</button>
+
+    
+    <script>
+        function check1() {
+            alert("check1함수 실행");
+        }
+
+        function check2(a) {
+            console.log(a); //태그를 얻음
+            console.log(a.id); //속성값은 .을 접근이 가능합니다.
+            console.log(a.innerHTML); //innerHTML키워드는 태그안에 text값을 얻습니다.
+            a.innerHTML = a.id;
+        }
+
+    </script>
+
+</body>
+</html>

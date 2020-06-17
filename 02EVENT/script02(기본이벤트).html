@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 자바스크립트는 모든 요소들이 로드 후에 동작되어야 하기 때문에
+        가장 마지막에 작성하는게 일반적이지만, 
+        만약 요소가 스크립트보다 아래에 있다면 window.onload 이벤트를 사용합니다.
+        단, onload이벤트는 하나의 화면에서 한개만 사용가능
+        */
+        window.onload = function() {
+            
+            var btn = document.getElementById("btn");
+                btn.onclick = function() {
+                
+                console.log(btn);
+                alert("기본이벤트");
+
+            }
+        }
+
+    </script>
+    
+
+</body>
+</html>

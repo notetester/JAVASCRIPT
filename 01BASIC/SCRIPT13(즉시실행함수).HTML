@@ -6,19 +6,25 @@
     <title>Document</title>
 </head>
 <body>
+    
+
     <script>
-        function test1(){
+
+        function test1() {
             console.log("test1함수");
         }
-        function test2(){
+        function test2() {
             console.log("test2함수");
         }
-        (function(a,b,c){
-            console.log("즉시 실행 함수 호출");
-            console.log(a,b,c);
+
+        (function(a, b, c) {
+            console.log("즉시실행 함수 호출");
+            console.log(a, b, c);
             test1();
             test2();
-        })(1,2,3);
+        })(1, 2, 3);
+
     </script>
+
 </body>
 </html>

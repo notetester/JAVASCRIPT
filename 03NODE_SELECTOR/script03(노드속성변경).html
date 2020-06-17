@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <section class="section1">
+        <select id="select1">
+            <option value="1.jpg">봄</option>
+            <option value="2.jpg">여름</option>
+            <option value="3.jpg">가을</option>
+            <option value="4.jpg">겨울</option>
+        </select>
+        <button type="button" class="btn1">이미지바꾸기</button>
+        
+        <img src="1.jpg" width="200" class="img1">
+
+    </section>
+    
+    <script>
+
+        var select1 = document.querySelector("#select1");
+        var btn1 = document.querySelector(".btn1");
+        var img1 = document.querySelector(".img1");
+
+        btn1.onclick =function() {
+            //console.log(select1);
+            //console.log(select1.value)
+            img1.src = select1.value;
+        }
+
+    </script>
+
+
+</body>
+</html>
