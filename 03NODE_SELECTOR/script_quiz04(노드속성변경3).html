@@ -68,16 +68,22 @@
 
         var body = document.querySelector("body");
         var all = document.querySelectorAll("h2, p, a");
-
+        //어둡게 버튼이벤트
         dark.onclick = function() {
             
-            body.style.backgroundColor = "black";
-            
-            for(var i = 0 ; i < all.length; i++) {
+            body.style.backgroundColor = "black"; //body의 배경색
+
+            for(var i = 0 ; i < all.length; i++) { //h2, p ,a 글자색
                 all[i].style.color = "white";
             }
-            
+        }
+        //밝게 버튼이벤트
+        bright.onclick =function() {
+            body.style.backgroundColor = "white"; //body의 배경색
 
+            for(var i = 0; i < all.length; i++) {
+                all[i].style.color = "black";
+            }
         }
 
     </script>

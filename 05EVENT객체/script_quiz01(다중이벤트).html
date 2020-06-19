@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul, li {list-style: none; display: inline-block;}
+    </style>
+</head>
+<body>
+    
+    <h3>다중이벤트</h3>
+    <div>
+        <ul>
+            <li><img src="img/1.jpg" alt="1" width="100"></li>
+            <li><img src="img/2.jpg" alt="1" width="100"></li>
+            <li><img src="img/3.jpg" alt="1" width="100"></li>
+            <li><img src="img/4.jpg" alt="1" width="100"></li>
+        </ul>
+    </div>
+
+    결과
+    <div class="result">
+        <img src="img/1.jpg" alt="결과" width="300">
+    </div>
+
+    <script>
+        
+        window.onload = function() {
+            var imgList = document.querySelectorAll("ul li img");
+            var result = document.querySelector(".result img");
+
+            for(var i = 0; i < imgList.length; i++) {
+
+                imgList[i].addEventListener("click", handleChange);
+                // imgList[i].onclick = function(event) {
+                //     result.src = event.target.src;
+                // }
+
+            }
+            
+            function handleChange() {
+                result.src = event.target.src;
+            }
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

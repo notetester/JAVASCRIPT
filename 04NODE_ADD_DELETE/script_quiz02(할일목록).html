@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>할일 삭제 기능은 아직 구현하지 마세요</h2>
+    <h2>할일 목록 만들기</h2>
+    
+    <form class="nameForm">
+        <h3 class="nameTitle"></h3>
+        <input type="text" placeholder="이름을 입력하세요">
+        <button type="button" >확인</button>
+    </form>               
+
+    <form class="todoForm">
+        <input type="text" placeholder="당신의 할일을 적으세요">
+        <button type="button" >확인</button>        
+    </form>
+
+    <ul class="todoList">        
+        
+    </ul>
+
+    <script>
+        //이름등록 기능
+        var nameForm = document.querySelector(".nameForm");
+
+        var nameTitle = nameForm.querySelector(".nameTitle");
+        var nameInput = nameForm.querySelector("input");
+        var nameButton = nameForm.querySelector("button");
+
+        nameButton.addEventListener("click" , regist);
+
+        function regist() {
+            nameTitle.innerHTML = nameInput.value + "님 안녕하세요";
+            nameInput.style.display = "none"; //input 숨김
+            nameButton.style.display = "none"; //버튼 숨김 
+        }
+
+        //할일 등록 기능
+        var todoForm = document.querySelector(".todoForm");
+        var todoInput = todoForm.querySelector("input");
+        var todoButton = todoForm.querySelector("button");
+
+        todoButton.addEventListener("click", handleTodo);
+        //등록버튼 핸들링 함수
+        function handleTodo() {
+
+            createTodo( todoInput.value ); //생성함수 호출
+            todoInput.value = ""; //할일 초기화
+            
+        }
+        //할일 목록 생성함수
+        function createTodo(text) {
+            
+            var ul = document.querySelector(".todoList"); //리스트목록
+
+            //삭제버튼생성
+            var btn = document.createElement("button");
+            btn.innerHTML = "X"; 
+            btn.addEventListener("click", deleteTodo); //삭제함수 등록
+
+            //이동버튼 생성 후에 eventListener기법으로 todoUp함수, todoDown 함수를 연결
+            var btn2 = document.createElement("button");
+            btn2.innerHTML = "↑";
+            btn2.addEventListener("click", todoUp);
+
+            var btn3 = document.createElement("button");
+            btn3.innerHTML = "↓";
+            btn3.addEventListener("click", todoDown);
+
+
+            //li생성
+            li = document.createElement("li");
+            li.innerHTML = text;
+           
+            li.appendChild(btn); //li에 버튼을 저장
+            li.appendChild(btn2); //li에 버튼을 저장
+            li.appendChild(btn3); //li에 버튼을 저장
+
+
+
+            ul.appendChild(li); //ul에 li를 추가
+
+            
+        }
+
+        //삭제 함수
+        function deleteTodo() {
+           var ul = document.querySelector(".todoList");
+           ul.removeChild(  event.target.parentElement  );
+            
+        }
+
+        //업
+        function todoUp() {
+            var todoList = document.querySelector(".todoList");
+            var current = event.target.parentElement;
+            var previous = current.previousElementSibling;
+
+            if(previous === null) return;
+            if(confirm("이동하시겠습니까?")) {
+                todoList.insertBefore(previous, current.nextElementSibling );
+            } else {    
+                return;
+            }
+
+        }
+
+        //다운
+        function todoDown() {
+
+            var todoList = document.querySelector(".todoList");
+            var current = event.target.parentElement;
+            var next = current.nextElementSibling;
+
+            if(next === null) return;
+            if(confirm("이동하시겠습니까?")) {
+                todoList.insertBefore( current, next.nextElementSibling ); 
+            } else {
+                return;
+            }
+
+        }
+
+    </script>
+
+
+      
+</body>
+</html>

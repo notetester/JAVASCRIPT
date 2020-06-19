@@ -1,0 +1,64 @@
+<!DOCTYP E html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="naver">네이버로 변경 버튼</button>
+    <button id="google">구글로 변경 버튼</button>
+
+    <form action="#" method="post" name="regForm">
+        <input type="hidden" name="num" value="">
+        <input type="text" name="title" placeholder="제목">
+    </form>
+
+
+    <script>
+        var naver = document.getElementById("naver");
+        naver.onclick =function() {
+
+            //폼은 유일하게 document.폼이름 으로 접근이 가능함
+            //document.regForm.action = "https://www.naver.com";
+            document.regForm.setAttribute("action", "https://www.naver.com")
+            document.regForm.submit();
+        
+        }
+
+        var google = document.getElementById("google");
+        google.onclick = function() {
+
+            //document.regForm.action = "https://www.google.com";
+            document.regForm.setAttribute("action" , "https://www.google.com");
+            document.regForm.submit();
+
+        }
+
+    </script>
+
+    <h2>클래스를 이용해서 하나의 버튼을 토글형태</h2>
+    <button class="toggle" id="toggle">토글버튼</button>
+
+    <script>
+        toggle = document.getElementById("toggle");
+        toggle.onclick = function() {
+
+            console.dir(toggle);
+
+            if(toggle.className == "toggle") {
+                toggle.innerHTML = "변경";
+                toggle.className = "change";
+            } else {
+                toggle.innerHTML = "토글버튼";
+                toggle.className = "toggle";
+            }
+ 
+        }
+    </script>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {border-spacing: 0; border-collapse: collapse;}
+        table thead tr th {border: 1px solid #777;}
+    </style>
+
+</head>
+<body>
+    
+    <table>
+        <thead> <!-- 제목영역 -->
+            <tr>
+                <th>교시</th>
+                <th>훈련과목</th>
+                <th>담당자</th>
+                <th>훈련내용</th>
+            </tr>
+        </thead>
+        <tbody class="todoList"><!-- 내용영역 -->
+            <tr>
+                <td><input type="text" size="3"></td>
+                <td><input type="text"></td>
+                <td><input type="text" size="5"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" size="3"></td>
+                <td><input type="text"></td>
+                <td><input type="text" size="5"></td>
+                <td><input type="text"></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <button type="button" id="addLists">5개 추가하기</button>
+    <button type="button" id="addList">1개 추가하기</button>
+
+    <script>
+        var addList = document.getElementById("addList");
+        var addLists = document.getElementById("addLists");
+        var todoList = document.querySelector(".todoList");
+
+        addList.addEventListener("click", createList);
+        addLists.addEventListener("click", createLists);
+        //1개 추가
+        function createList() {
+
+            var tr = document.createElement("tr"); //tr생성
+
+            var td = document.createElement("td"); //td생성
+            var str = "<input type='text' size='3'>";
+            td.innerHTML = str;
+            tr.appendChild(td); //tr에 추가
+
+            var td = document.createElement("td"); //td생성
+            var str = "<input type='text'>";
+            td.innerHTML = str;
+            tr.appendChild(td); //tr에 추가
+
+            var td = document.createElement("td"); //td생성
+            var str = "<input type='text' size='5'>";
+            td.innerHTML = str;
+            tr.appendChild(td); //tr에 추가
+
+            var td = document.createElement("td"); //td생성
+            var str = "<input type='text'>";
+            td.innerHTML = str;
+            tr.appendChild(td); //tr에 추가
+
+            //todoList아래에 tr추가
+            todoList.appendChild(tr);
+
+        }
+
+        //5개 추가
+        function createLists() {
+            
+            for(var i = 1; i <= 5; i++) {
+                var tr = document.createElement("tr"); //tr생성
+
+                var td = document.createElement("td"); //td생성
+                var str = "<input type='text' size='3'>";
+                td.innerHTML = str;
+                tr.appendChild(td); //tr에 추가
+
+                var td = document.createElement("td"); //td생성
+                var str = "<input type='text'>";
+                td.innerHTML = str;
+                tr.appendChild(td); //tr에 추가
+
+                var td = document.createElement("td"); //td생성
+                var str = "<input type='text' size='5'>";
+                td.innerHTML = str;
+                tr.appendChild(td); //tr에 추가
+
+                var td = document.createElement("td"); //td생성
+                var str = "<input type='text'>";
+                td.innerHTML = str;
+                tr.appendChild(td); //tr에 추가
+
+                //todoList아래에 tr추가
+                todoList.appendChild(tr);
+            }
+
+        }
+
+    </script>
+
+
+
+</body>
+</html>

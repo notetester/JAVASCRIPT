@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        window.onload = function() {
+
+
+            var count = 0;
+            var add = document.getElementById("add");
+           
+            add.onclick =function() {
+               
+                //노드 생성
+                var li = document.createElement("li"); 
+                var a = document.createElement("a");
+                var text = document.createTextNode(++count);
+                
+                //노드를 자식으로 추가
+                a.appendChild(text); 
+                a.href = "https://www.naver.com";
+                li.appendChild(a);
+                document.querySelector(".list").appendChild(li); 
+            }
+        }
+    </script>
+
+    <button type="button" id="add">추가</button>
+    <ul class="list">
+
+    </ul>
+
+</body>
+</html>

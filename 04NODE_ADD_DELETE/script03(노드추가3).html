@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        window.onload = function() {
+
+            //ul생성
+            var ul = document.createElement("ul");
+            for(var i = 1; i <= 10; i++) {
+                //li생성
+                var li = document.createElement("li");
+                var text = document.createTextNode("리스트" + i);
+                    
+                li.appendChild(text);
+                ul.appendChild(li);
+            } //end for
+            document.querySelector(".addList").appendChild(ul); 
+
+
+            //추가버튼 이벤트
+            var add = document.getElementById("add");            
+            add.onclick =function() {
+
+                for(var i = 1; i <= 10; i++) {
+
+                    var li = document.createElement("li");
+                    //var text =document.createTextNode("추가된리스트");
+                    //li.appendChild(text);
+                    li.innerHTML = "추가된 리스트";
+
+                    //ul을 가져와야 하는데, ul은 class나 id가 없다.(쿼리셀렉터 이용)
+                    document.querySelector(".addList ul").appendChild(li);
+                }
+
+            }
+        }
+
+    </script>
+
+
+    <button type="button" id="add">추가</button>
+    <div class="addList">
+
+    </div>
+
+</body>
+</html>
