@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- form객체는 document의 자식객체로, 유일하게 name속성으로 접근이 가능합니다. -->
+    <form action="##"   name="regForm">
+        아이디:<input type="text" name="id"><br>
+        비밀번호:<input type="password" name="pw"><br>
+        번호:
+        <div>
+            <select name="phone1">
+                <option >선택</option>
+                <option>010</option>
+                <option>011</option>
+                <option>018</option>
+            </select>
+            -<input type="text" name="phone2">
+            -<input type="text" name="phone3">
+        </div>
+        자기소개:
+        <textarea cols="50" rows="3" name="intro"></textarea>
+        <br>
+        분야:
+        <input type="checkbox" name="inter">JAVA
+        <input type="checkbox" name="inter">DB
+        <input type="checkbox" name="inter">JAVASCRIPT
+        <input type="checkbox" name="inter">JSP
+        <br>
+
+        <button type="button" id="regist">가입</button>
+
+    </form>
+
+    <script>
+        var regist = document.getElementById("regist");
+        regist.onclick = function() {
+
+            // console.log(document.regForm.id)
+            // console.log(document.regForm.pw)
+
+            if(document.regForm.id.value.length < 4 ) {
+                alert("아이디는 4글자 이상입니다"); 
+                document.regForm.id.focus(); //포커스
+                return;
+            } else if(document.regForm.pw.value.length < 8) {
+                alert("비밀번호는 8글자 이상입니다");
+                document.regForm.pw.focus();
+                return;
+            } else if(document.regForm.phone1.value === '선택') {
+                alert("전화번호는 필수 사항입니다");
+                return;
+            } else {
+                var list = document.getElementsByName("inter");
+                //var list = document.querySelectorAll("input[type='checkbox']");
+                var bool = true;                
+                for(var i = 0; i < list.length; i++) {
+                    if(list[i].checked) {
+                        bool = false;
+                        break;
+                    }
+                }
+
+                if(bool) {
+                    alert("분야를 한개이상 선택하세요");
+                    return;
+                }
+            }
+
+            //서브밋
+            document.regForm.submit();
+
+
+        }
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul, li {list-style: none; display: inline-block;}
+        table { border-collapse: collapse;}
+        thead th, tbody td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <h3>버블링 코드로 변경</h3>
+    <div>
+        <ul class="imgList">
+            <li><img src="img/1.jpg" alt="1" width="100"></li>
+            <li><img src="img/2.jpg" alt="1" width="100"></li>
+            <li><img src="img/3.jpg" alt="1" width="100"></li>
+            <li><img src="img/4.jpg" alt="1" width="100"></li>
+        </ul>
+    </div>
+
+    결과
+    <div class="result">
+        <img src="img/1.jpg" alt="결과" width="300">
+    </div>
+
+    <script>
+        var imgList = document.querySelector(".imgList");
+        var result = document.querySelector(".result img");
+        imgList.onclick = function() {
+            
+            if(event.target.tagName !== "IMG") return;
+            result.src = event.target.src;
+
+        }
+    </script>
+
+
+
+
+
+    
+    <hr>
+
+    <h3>버블링 코드로 변경</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            <tr>
+                <td>1</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var list = document.querySelector(".list");
+        list.onclick = function() {
+
+            if(event.target.tagName !== "BUTTON") return; //button이 아니라면 함수종료
+
+            event.target.parentElement.parentElement.remove(); //tr삭제
+        }
+    </script>
+
+</body>
+</html>

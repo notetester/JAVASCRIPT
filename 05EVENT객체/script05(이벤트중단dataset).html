@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul class="nameList">
+        <li><a href="#" data-userInfo='{"id":"1", "age": "20"}' >홍길동</a></li>
+        <li><a href="#" data-userInfo='{"id":"2", "age": "30"}' >이순신</a></li>
+        <li><a href="#" data-userInfo='{"id":"3", "age": "40"}' >홍길자</a></li>
+        <li><a href="#" data-userInfo='{"id":"4", "age": "50"}' >박찬호</a></li>
+    </ul>
+
+    <script>
+        var nameList = document.querySelector(".nameList");
+        nameList.onclick = function() {
+            event.preventDefault(); //a의 고유이벤트 중단
+            if(event.target.tagName !== "A") return; //a태그가 아니라면 종료
+
+            //console.dir(event.target.dataset.userinfo)
+
+            var data = event.target.dataset.userinfo;
+            var jsonData = JSON.parse(data);
+            console.log(jsonData);
+
+            console.log("id:" + jsonData.id , "age:" + jsonData.age)
+
+        }
+
+    </script>
+
+
+
+
+</body>
+</html>

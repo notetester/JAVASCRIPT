@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bgImg {
+            position: absolute;
+            top:0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+    </style>
+
+</head>
+<body data-img='{"1": "img/1.jpg", "2": "img/2.jpg", "3": "img/3.jpg", "4":"img/4.jpg"}'>
+    
+    <!-- <img src="img/4.jpg" class="bgImg"> -->
+    <div class="clock">
+        <h2>00:00:00</h2>
+    </div>
+
+    <script>
+
+        var clock = document.querySelector(".clock h2");
+        function createTime() {
+            /*
+            1. 이함수는 1초마다 실행
+            2. 날짜객체 생성 
+            3. getHours(), getMinues(), getSecond() 함수를 이용해서 날짜를 조합 
+            4. 조합한 결과를 h2태그에 반영
+            */
+            var date = new Date();
+            var hours = date.getHours(); //시간
+            var minues = date.getMinutes(); //분
+            var second = date.getSeconds(); //초
+
+            // var time = (hours < 10 ? "0"+hours : hours) + ":" +
+            //            (minues < 10 ? "0"+minues : minues) + ":" +
+            //            (second < 10 ? "0"+second : second);            
+            var time = `${hours < 10 ? `0${hours}`: hours }:
+                       ${minues < 10 ? `0${minues}`: minues}:
+                       ${second < 10 ? `0${second}`: second}`;
+
+            clock.innerHTML = time; 
+        }
+
+        var body = document.querySelector("body");
+        var count = 0;
+        function changeBackground() {
+            /*
+            1.이 함수는 10초마다 실행
+            2.body에 있는 dataset객체를 얻어옵니다.
+            3.img태그를 생성하고 경로를 src에 추가
+            4.class에 bgImg추가
+            5.body에 appenChild로 이미지를 추가
+            */
+            //console.log(body.dataset.img)
+            var data = body.dataset.img;
+            var result = JSON.parse(data);
+
+            //이미지 생성
+            console.log(result);
+            var img = document.createElement("img"); //img생성
+            img.src = result[++count]; //src에 이미지경로 추가
+            img.className = "bgImg"; //클래스이름추가
+
+            body.appendChild(img);
+
+            //객체의 길이를 구하는 방법
+            if(count === Object.keys(result).length ) count = 0;
+        }
+
+
+        (function() {
+            createTime(); //시작시에 호출
+            setInterval(createTime, 1000); //1초마다 실행
+            changeBackground();
+            setInterval(changeBackground, 10000); //10초마다 실행
+        })();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bgImg {
+            animation: fadeIn .5s linear;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            } to {
+                opacity: 1;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="slide">
+        <img src="img/slide1.jpg" class="bgImg" >
+    </div>
+
+    <script>
+
+        var slide = document.querySelector(".slide");
+        var num = 1;
+        function changeImg() {
+
+            //이미지를 생성
+            var img = document.createElement("img");
+            //img.src = "img/slide" + ++num +".jpg";
+            img.src = `img/slide${++num}.jpg`;
+            img.className = "bgImg";
+
+            slide.removeChild( slide.children[0] ); //슬라이드 0번째 노드삭제
+            slide.appendChild(img); //슬라이드의 자식으로 이미지추가
+
+            if(num === 4) num = 0; //num이 4가되면 0로 초기화
+        }
+
+        (function() {
+
+            setInterval(changeImg , 1000 );
+
+        })();
+
+    </script>
+
+
+</body>
+</html>
+

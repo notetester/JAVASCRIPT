@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var millis = 1592873374781;
+        // var today = new Date(millis); 
+        // console.log( today ); //등록날짜
+        // console.log( today.getTime()); //등록날짜의 밀리초
+
+        var now = new Date();
+        console.log( now); //지금날짜
+        console.log( now.getTime() ); //지금날짜의 밀리초   
+        // //년 월 일 시 분 초 형태로 변경
+        // console.log( today.getFullYear() ); //년
+        // console.log( today.getMonth() + 1 ); //월
+        // console.log( today.getDate() ); //일
+        // console.log( today.getHours() ); //시
+        // console.log( today.getMinutes() ); //분
+        // console.log( today.getSeconds() ); //초
+
+        var gap = now.getTime() - millis; //시간차이
+        console.log(gap)
+
+        // //1일을 기준으로 1일 이하인 경우는 시간차를 표기, 1일 이상인 경우는 등록날짜를 표기
+        var time;
+        if(gap < 1000 * 60 * 60 * 24) { //1일 미만인경우 
+            if(gap < 1000 * 60 * 60) { //1시간 미만인경우
+                time = "방금전";
+            } else {
+                time = parseInt(gap / (1000 * 60 * 60)) + "시간전"; 
+            }
+
+        } else { //1일 이상인경우
+
+            var date = new Date(millis); //등록날짜 기반으로 날짜객체 생성
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            time = year + "년" + 
+                   (month < 10 ? "0"+month : month ) +"월" +
+                   (day < 10 ? "0"+day : day) + "일";
+        }
+
+        console.log(time); //확인
+
+    </script>
+    
+
+
+</body>
+</html>

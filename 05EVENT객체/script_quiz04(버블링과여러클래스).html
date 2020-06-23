@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .mainTable {border-collapse: collapse; width: 100%; text-align: center;}
+        thead tr th,
+        tbody tr td {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <table class="mainTable">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>과정명</th>
+                <th>담당교수</th>
+                <th>관리</th>
+            </tr>
+        </thead>
+        <tbody class="tableList">
+            <tr>
+                <td>1</td>
+                <td>강남응용자바</td>
+                <td>홍길동</td>
+                <td>
+                    <button type="button" class="btn-primary testInfo">시험기본정보</button>
+                    <button type="button" class="btn-danger testInput">시험출제</button>
+                    <button type="button" class="btn-info testResult">시험결과</button>
+                    <button type="button" class="btn-default scoreInfo">성적관리</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>종로응용자바</td>
+                <td>홍길자</td>
+                <td>
+                    <button type="button" class="btn-primary testInfo">시험기본정보</button>
+                    <button type="button" class="btn-danger testInput">시험출제</button>
+                    <button type="button" class="btn-info testResult">시험결과</button>
+                    <button type="button" class="btn-default scoreInfo">성적관리</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        /*
+        1. 버블링으로 이벤트를 걸고, 클래스이름이
+            testInfo라면 "시험기본정보..." 
+            testInput이라면 "시험출제..."
+            testResult라면 "시험결과..."
+            scoreInfo라면 "성적관리..."
+            형식으로 출력이 되도록 이벤트를 처리
+        */
+
+        var mainTable = document.querySelector(".mainTable");
+        var tableList = mainTable.querySelector(".tableList");
+        tableList.onclick = function() {
+
+            if(event.target.tagName !== "BUTTON") {
+                return;
+            } else if(event.target.classList.contains("testInfo")) {
+                console.log(event.target);
+                console.log("시험기본정보..");
+
+            } else if(event.target.classList.contains("testInput") ) {
+                console.log(event.target);
+                console.log("시험출제..");
+
+            } else if(event.target.classList.contains("testResult") ) {
+                console.log(event.target);
+                console.log("시험결과..");
+
+            } else if(event.target.classList.contains("scoreInfo") ) {
+                console.log(event.target);
+                console.log("성적관리.")
+
+            }
+            
+
+        }
+
+        
+
+    </script>
+
+
+
+</body>
+</html>
