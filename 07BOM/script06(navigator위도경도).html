@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function success(position) { //위치정보를 확인햇을 때 실행시켜주는 성공함수
+            // console.log(position)
+            console.log("위도:" + position.coords.latitude)
+            console.log("경도:" + position.coords.longitude)
+
+
+        }
+
+        function fail() { //위치정보 확인에 실패 했을 때 실행시켜주는 실패함수
+            alert("위치정보 수신에 동의해야 합니다");
+            
+        }
+
+
+        (function() {
+
+            //console.dir(navigator);
+            console.log(navigator.appName); //접속한 브라우저 정보
+            navigator.geolocation.getCurrentPosition(success, fail );
+
+
+        })();
+
+    </script>
+
+
+</body>
+</html>

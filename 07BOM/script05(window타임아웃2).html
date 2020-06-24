@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-banner1 {
+            background:
+                linear-gradient(90deg, #0c151c 1.3125rem, transparent 1%) 50%,
+                linear-gradient(#0c151c 1.3125rem, transparent 1%) 50%,
+                #263747;
+            background-size: 1.5rem 1.5rem;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .title-top {
+            color: #ffffff;
+            position: relative; /* 애니메이션으로 사용하기위해 */
+            display: none;
+            animation: topmove 1s ease-in-out;
+        }
+        @keyframes topmove {
+            from {
+                top: -50px;
+                opacity: 0;
+            } to {
+                top: 0px;
+                opacity: 1;
+            }
+        }
+
+        .title-left {
+            position: relative;
+            display: none;
+            animation: leftmove 1s ease-in-out;
+        }
+        @keyframes leftmove {
+            from {
+                left: -50px;
+                opacity: 0;
+            } to {
+                left: 0px;
+                opacity: 1;
+            }
+        }
+
+        .title-right {
+            position: relative;
+            display: none;
+            animation: rightmove 1s ease-in-out;
+        }
+        @keyframes rightmove {
+            from {
+                right: -50px;
+                opacity: 0;
+            } to {
+                right: 0px;
+                opacity: 1;
+            }
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="main-banner1">
+
+        <h3 class="title-top">안녕하세요</h3>
+        <img src="img/1.jpg" width="200" class="title-left">
+        <img src="img/2.jpg" width="200" class="title-right">
+
+    </div>
+
+    
+    <script>
+
+        function titleTop() {
+            var title_top = document.querySelector(".title-top");
+            title_top.style.display = "block";
+        }
+
+        function titleLeft() {
+            var title_left = document.querySelector(".title-left");
+            title_left.style.display = "inline";
+        }
+
+        function titleRight() {
+            var title_right = document.querySelector(".title-right");
+            title_right.style.display = "inline";
+        }
+
+        (function() {
+            setTimeout(titleTop, 1000);
+            setTimeout(titleLeft, 2000);
+            setTimeout(titleRight, 3000);
+        })();        
+    </script>
+
+
+</body>
+</html>

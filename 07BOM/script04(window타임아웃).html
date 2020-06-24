@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>5초뒤에 타임함수가 실행되는데 이 버튼을 누르면 실행되지 않습니다</h3>
+    <button type="button" class="stopTime">스탑</button>
+
+    <script>
+        
+        // var stopTime = document.querySelector(".stopTime");
+        // stopTime.onclick = function() {
+        //     clearTimeout(stop) //중지
+        // }
+
+        // var stop = setTimeout( function() {
+        //     alert("5초 뒤에 경고창 출력")
+        // }, 5000)
+
+
+        //매개변수를 time함수에 전달하고 싶다면..?
+
+        function test(text) {
+            
+            var temp =  text;
+
+            return function() {
+                alert(temp);
+            }
+        }
+        setTimeout(test(1) , 5000 )
+
+
+
+    </script>
+
+
+</body>
+</html>
