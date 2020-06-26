@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <style>
+        * {padding: 0; margin: 0;}
+        ul, li {list-style: none;}
+        .movieList {overflow: hidden; width: 80%; margin: 0 auto; }
+        .movieList .movie {float: left; width: 33.3333%; height: 300px; position: relative; }
+        .movie img {position: absolute; top:0; left: 0; width: 100px;}
+
+        .movie .inner {padding-left: 110px;}
+        .movie .genres li {display: inline-block; margin-left: 5px;}
+        .movie p {overflow: scroll; height: 100px;}
+    </style>
+
 </head>
 <body>
     
 
-    <div>
+    <div align="center">
         <h3>무비 리스트</h3>
     </div>
     <div class="movieList">
@@ -48,6 +61,8 @@
             var list = jsonData.data.movies; //화면에 출력할 데이터만 추출
             var movieList = document.querySelector(".movieList"); 
 
+            console.log(jsonData)
+
             var tag = "";
             for(var i = 0; i < list.length; i++) {
 
@@ -65,7 +80,9 @@
                 tag += '<h3 class="title">'+ title +'</h3>'
                 tag += '<h3 class="year">'+ year +'</h3>'
                 tag += '<ul class="genres">'
-                tag += genres                            
+                        for(var j of genres) {
+                            tag += '<li>-' +j + '</li>'
+                        } 
                 tag += '</ul>';
                 tag += '<p class="summary">'+ summary +'</p>'
                 tag += '</div>';
@@ -74,9 +91,6 @@
             }
 
             movieList.innerHTML = tag; //화면에 추가
-           
-
-
         })
 
 
