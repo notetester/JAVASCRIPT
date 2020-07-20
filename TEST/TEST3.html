@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제목123</title>
+    <script src="js/kakao.js"></script>
+</head>
+<body>
+    <a id="kakao-link-btn" href="javascript:sendLink()">
+        <img
+          src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+        />
+      </a>
+      <a href="javascript:test()">
+        <img
+        src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+      />
+      </a>
+      <a href="javascript:shareStoryWeb()">
+        <img
+          src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+        />
+      </a>
+      <script type="text/javascript">
+        Kakao.init('03e93abfc5eb0def6a90ac6ee266241a')
+        function sendLink() {
+          Kakao.Link.sendDefault({
+            objectType: 'feed',
+            content: {
+              title: document.title,
+              description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+              imageUrl:
+                'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+              link: {
+                mobileWebUrl: 'https://developers.kakao.com',
+                webUrl: 'https://developers.kakao.com',
+              },
+            },
+            social: {
+              likeCount: 286,
+              commentCount: 45,
+              sharedCount: 845,
+            },
+            buttons: [
+              {
+                title: '웹으로 보기',
+                link: {
+                  mobileWebUrl: 'https://developers.kakao.com',
+                  webUrl: 'https://developers.kakao.com',
+                },
+              },
+              {
+                title: '앱으로 보기',
+                link: {
+                  mobileWebUrl: 'https://developers.kakao.com',
+                  webUrl: 'https://developers.kakao.com',
+                },
+              },
+            ],
+          })
+        }
+        function test(){
+            // var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
+			var content_url = encodeURIComponent(document.location.href);
+            // window.open(sharer + content_url, 'facebook_share_dialog', 'width=626,height=436');
+            // var content_url = encodeURIComponent(document.location.href);
+            // window.open('https://story.kakao.com/share?url='+content_url, 'kakao_story', 'width=510, height=490, resizable=no');
+            // var pop_width = "466";
+			// var pop_height = "356";
+			// window.open('https://story.kakao.com/share?url='+content_url);
+			// var param = "";
+			// param += "gId=" + gallery_id;
+			// param += "&gNo=" + content_no;
+			// param += "&pGNo=" + e_s_n_o;
+			// param += "&subject=" + encodeURI(subject);
+			// param += "&type=" + sns_division;
+            // param += "&mobile=" + mobile;
+            // var param=document.location.href;
+
+            // window.open("/api/sns/sns_location/?"+param,'etc_sns', 'width=' + pop_width + ', height=' + pop_height + '');
+            // window.open("https://twitter.com/intent/tweet?text="+"gonu"+"&url="+document.location.href);
+            alert_content = "해당 글의 주소입니다.\nCtrl+C를 눌러 클립보드로 복사하세요.";
+			temp = prompt(alert_content, document.location.href);
+        }
+        function shareStoryWeb() {
+            var content_url = encodeURIComponent(document.location.href);
+            Kakao.Story.share({
+                url: "http://127.0.0.1:5501/TEST/TEST3.html",
+                text: '카카오 개발자 사이트로 놀러오세요! #개발자 #카카오 :)',
+            })
+        }
+      </script>
+      
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/kakao.js"></script>
+    <style>
+        .center{text-align: center;}
+    </style>
+</head>
+<body>
+    <div class="center">
+        <a id="kakao-link-btn" href="javascript:kakaoLink()"><img src="img/kakao.png" alt="카카오톡 공유" width="30px" height="30px"></a>
+        <a id="kakao-story-btn" href="javascript:kakaostoryLink()"><img src="img/kakaostory.png" alt="카카오스토리 공유" width="30px" height="30px"></a>
+        <a id="facebook-btn" href="javascript:facebookLink()"><img src="img/facebook.jpg" alt="페이스북 공유" width="30px" height="30px"></a>
+        <a id="twitter-btn" href="javascript:twitterLink()"><img src="img/twitter.jpg" alt="트위터 공유" width="30px" height="30px"></a>
+        <a id="URL-btn" href="javascript:URLLink()"><img src="img/URL.png" alt="URL 공유" width="30px" height="30px"></a>
+    </div>
+    <script>
+        Kakao.init('03e93abfc5eb0def6a90ac6ee266241a');
+        function kakaoLink() {
+          Kakao.Link.sendDefault({
+            objectType: 'feed',
+            content: {
+              title: document.title,
+              description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+              imageUrl: document.images[0].src,
+              link: {
+                mobileWebUrl: document.location.href,
+                webUrl: document.location.href,
+              },
+            },
+            buttons: [
+              {
+                title: '웹으로 보기',
+                link: {
+                  mobileWebUrl: document.location.href,
+                  webUrl: document.location.href,
+                }
+              }
+            ]
+          });
+        }
+        function kakaostoryLink(){
+            Kakao.Story.share({
+                url: document.location.href,
+                text: '카카오 개발자 사이트로 놀러오세요! #개발자 #카카오 :)',
+            });
+        }
+        function facebookLink(){
+            var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
+			var content_url = encodeURIComponent(document.location.href);
+            window.open(sharer + content_url, 'facebook_share_dialog', 'width=626,height=436');
+        }
+        function twitterLink(){
+            window.open("https://twitter.com/intent/tweet?text="+"gonu"+"&url="+document.location.href);
+        }
+        function URLLink(){
+            alert_content = "해당 글의 주소입니다.\nCtrl+C를 눌러 클립보드로 복사하세요.";
+			temp = prompt(alert_content, document.location.href);
+        }
+    </script>
+</body>
+</html>
